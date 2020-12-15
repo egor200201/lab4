@@ -92,9 +92,9 @@ public class GraphicsDisplay extends JPanel {
             canvas.drawString("y", (float) labelPos.getX() + 10,
                     (float) (labelPos.getY() - bounds.getY()));
         }
-        Rectangle2D centerBounds = axisFont.getStringBounds("o", context);
+        Rectangle2D centerBounds = axisFont.getStringBounds("0", context);
         Point2D.Double centerLabelPos = xyToPoint(0, 0);
-        canvas.drawString("o", (float)centerLabelPos.getX() + 10,
+        canvas.drawString("0", (float)centerLabelPos.getX() + 10,
                 (float)(centerLabelPos.getY() - centerBounds.getY()));
         if (minY <= 0.0 && maxY >= 0.0) {
             canvas.draw(new Line2D.Double(xyToPoint(minX, 0),
@@ -155,9 +155,9 @@ public class GraphicsDisplay extends JPanel {
         double step = (maxX - minX-1)/100;
 
 
-        pos = (abs(maxY-minY)) *0.5;
-        pos1 = (abs(maxY-minY)) *0.9;
-        pos2 = (abs(maxY-minY)) *0.1;
+        pos = minY+((maxY-minY)) *0.5;
+        pos1 = minY+((maxY-minY)) *0.9;
+        pos2 = minY+((maxY-minY)) *0.1;
 
             canvas.draw(new Line2D.Double(xyToPoint(minX,pos ), xyToPoint(maxX, pos)));
         canvas.draw(new Line2D.Double(xyToPoint(minX,pos1 ), xyToPoint(maxX, pos1)));
